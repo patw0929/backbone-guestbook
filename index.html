@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Guestbook</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/guestbook.css">
+
+    <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="masthead">
+            <header>
+                <h1 class="muted">Backbone Guestbook</h1>
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <div class="container">
+                      <ul class="nav">
+                        <li><a href="#/" class="btn-list">List</a></li>
+                        <li><a href="#/sign" class="btn-sign">Sign</a></li>
+                        <li><a href="#/about" class="btn-about">About</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div><!-- /.navbar -->
+            </header>
+        </div>
+
+        <div class="row main">
+        </div>
+
+        <footer>
+            Copyright by 2013 Partner Studio
+        </footer>
+
+    </div>
+
+    <div id="about">
+
+        <div class="span12">
+            <h1>About</h1>
+            <p>This is my backbone.js practice project. :PPP</p>
+        </div>
+
+    </div>
+
+    <script type="text/template" id="list-template">
+
+        <% _.each(datas, function (data) { %>
+            <div class="span12 single">
+                <article>
+                    <h1><%= htmlEncode(data.get('title')) %></h1>
+                    <span rel="author"><i class="icon-user"></i> <%= htmlEncode(data.get('name')) %></span>
+                    <p><%= htmlEncode(data.get('comment')) %></p>
+                </article>
+            </div>    
+        <% }); %>
+
+    </script>
+
+    <script type="text/template" id="sign-template">
+
+        <div class="span12 form">
+            <form class="sign-form">
+                <fieldset>
+                    <legend>Say something...</legend>
+
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Your name">
+
+                    <label>Title</label>
+                    <input type="text" name="title">
+                    <span class="help-block">Maximum length is 15 characters</span>
+
+                    <label>Comment</label>
+                    <textarea name="comment"></textarea>
+
+                    <hr />
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn back">Back</button>
+            </form>
+        </div>
+
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="javascripts/underscore-min.js"></script>
+    <script src="javascripts/backbone-min.js"></script>
+    <script src="javascripts/app.js"></script>
+
+</body>
+</html>
